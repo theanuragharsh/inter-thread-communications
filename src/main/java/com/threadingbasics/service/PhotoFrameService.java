@@ -18,7 +18,8 @@ public class PhotoFrameService {
                 System.out.println(Thread.currentThread().getName() + " This frame is currently available in stock :)");
                 return true;
             }
-            System.out.println(Thread.currentThread().getName() + " OUT OF STOCK");
+            System.out.println(Thread.currentThread().getName() + " :" +
+                    " OUT OF STOCK");
             return false;
         }
     }
@@ -31,7 +32,7 @@ public class PhotoFrameService {
                 availableFrames.put(type, PhotoFramesList);
                 System.out.println(Thread.currentThread().getName() + ":PhotoFrame :" + photoFrames.id + " Will be delivered soon");
             } else {
-                System.out.println(Thread.currentThread().getName() + "This Frame is out of stock");
+                System.out.println(Thread.currentThread().getName() + " : This Frame is out of stock");
             }
         }
     }
@@ -50,7 +51,7 @@ public class PhotoFrameService {
         }
     }
 
-    public void updateAvailaibilityOnUi(String type) {
+    public void updateAvailabilityOnUi(String type) {
         synchronized (availableFrames) {
             while (availableFrames.isEmpty() && availableFrames.containsKey(type)) {
                 try {
